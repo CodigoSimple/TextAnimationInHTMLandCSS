@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#sectionUno {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.water,
+.text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.water {
+  background: white;
+  filter: blur(20px) contrast(30);
+  z-index: -1;
+}
+.water-drop {
+  animation: water-drop-box 50s linear infinite;
+}
+.water-drop span {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: -webkit-linear-gradient(45deg, #ff00b3, #000, #8202cc);
+  border-radius: 50%;
+}
+.water-drop span:nth-child(1) {
+  animation: move-water-drop-one 10s linear infinite;
+}
+.water-drop span:nth-child(2) {
+  animation: move-water-drop-two 10s linear infinite;
+}
+
+.text {
+  mix-blend-mode: screen;
+}
+.text h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 120pt;
+  color: #00dd81;
+}
+@keyframes move-water-drop-one {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes move-water-drop-two {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(-180deg) scale(2);
+  }
+  100% {
+    transform: rotate(-360deg) scale(1);
+  }
+}
+@keyframes water-drop-box {
+  100%,
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(-450px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(350px);
+  }
+}
